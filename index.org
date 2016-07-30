@@ -13,8 +13,8 @@
 #+LINK: wiki  https://en.wikipedia.org/wiki/
 
 #+HTML: <div class="outline-2" id="meta">
-| *Author* | Karsten Schmidt |
-| *Date*   | 2016-07-30      |
+| *Author* | Karsten Schmidt      |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}}  |
 #+HTML: </div>
 
 #+TOC: headlines 3
@@ -26,9 +26,11 @@
 
 ** TODO Abstract
 
-Brief outline description of the document...
+Brief outline description of the document[fn:intro]...
 
-** TODO Scope
+[fn:intro] Example footnote, can also contain [[thing:org-spec][links]].
+
+** DONE Scope
 
 Topics covered by this specification:
 
@@ -98,11 +100,6 @@ In this document:
 
 ** System actors, roles & responsibilities
 *** Users
-
-In the intro[fn:intro] we mentioned...
-
-[fn:intro] See here: [[#section-intro]]
-
 *** Client
 *** Server
 ** General system design guidelines
