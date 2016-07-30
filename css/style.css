@@ -121,6 +121,11 @@ a[href^="http"]:after {
     display: none;
 }
 
+#table-of-contents .todo,
+#table-of-contents .done {
+    font-size: 80%;
+}
+
 table {
     width: 100%;
 }
@@ -262,10 +267,6 @@ div.figure {
 
     #table-of-contents code {
         font-size: 12px;
-    }
-
-    #table-of-contents .todo, #table-of-contents .done {
-        font-size: 80%;
     }
 
     div.outline-2, #footnotes {
