@@ -264,13 +264,13 @@ div.figure {
         font-size: 12px;
     }
 
+    #table-of-contents .todo, .done {
+        font-size: 80%;
+    }
+
     div.outline-2, #footnotes {
         margin-left: 280px;
         max-width: 960px;
-    }
-
-    .todo, .done {
-        font-size: 80%;
     }
 }
 
