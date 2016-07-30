@@ -5,6 +5,8 @@
  '((emacs-lisp . t)
    (clojure . t)
    (sh . t)
-   (ditaa . t)))
+   (ditaa . t)
+   (dot . t)
+   (plantuml . t)))
 
 (message "loaded config")
