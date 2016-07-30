@@ -143,8 +143,8 @@ tbody tr:nth-child(odd) {
     background-color: #eee;
 }
 
-img.fullwidth {
-    width: 100%;
+img {
+    max-width: 90%;
 }
 
 pre {
@@ -205,10 +205,10 @@ div.figure {
 
 .tag {
     font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
-    font-size: 80%;
+    font-size: 11px;
     font-weight: normal;
     float: right;
-    margin-top: 0.2em;
+    margin-top: 1em;
     background: transparent;
 }
 
@@ -239,7 +239,7 @@ div.figure {
 @media screen {
     h1.title {
         text-align: left;
-        margin: 0 0 0 280px;
+        margin: 1em 0 0 280px;
     }
 
     h2 {
@@ -276,12 +276,6 @@ div.figure {
 }
 
 @media screen and (max-width: 1024px) {
-    html, body {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 768px) {
     html, body {
         font-size: 14px;
     }
