@@ -1,0 +1,41 @@
+#+TITLE: thi.ng/org-spec
+
+An [[http://orgmode.org][Org-mode]] template for technical specification documents and HTML
+publishing
+
+* Features
+
+- Specification document skeleton for a web application, incl. usage
+  examples of various org-mode features:
+  - Inline, text-based diagramming via [[http://ditaa.sourceforge.net][Ditaa]], [[http://graphviz.org][Graphviz]] & [[http://plantuml.com/][PlantUML]]
+  - Hyperlink abbreviations (incl. presets for GitHub, RFC, W3C, Wikipedia)
+  - Section status flags, tags & custom properties
+  - Tables
+  - Named section IDs for internal x-refs
+  - Footnotes
+  - Automatically updating fields (e.g. publication date)
+  - Semi-automatic updating of document changelog
+  - Basic syntax highlighting of code blocks
+- Beautiful, minimal CSS with print support (also for PDF generation)
+
+* Example output
+
+Take a look at the published version of the included demo document:
+
+http://demo.thi.ng/org-spec/
+
+* Getting started
+
+The =index.org= source file contains everything (apart from CSS, which
+is located in the =/css= dir), including build instructions and
+further comments, not visible in the exported document.
+
+You can use =s3cmd='s sync option to quickly publish the generated
+HTML version to AWS S3, like so:
+
+#+BEGIN_SRC shell
+# if you need to install s3cmd first
+brew install s3cmd
+
+s3cmd sync . s3://bucketname/path/
+#+END_SRC
