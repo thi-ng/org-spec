@@ -60,12 +60,13 @@ for the code block below to the tag of your last published version.
 #+END_COMMENT
 
 #+HTML: <ul>
-#+BEGIN_SRC shell :exports results :results value html :var TAG="v0.0"
-RES=`git log $TAG...HEAD --pretty="<li>%s</li>" -- index.org`
-if [ -z $RES ]; then
-  RES="<li>no changes</li>"
-fi
-echo $RES
+
+#+BEGIN_SRC sh :exports results :results value html :var TAG="v0.0"
+  RES=`git log $TAG...HEAD --pretty="<li>%s</li>" -- index.org`
+  if [ -z $RES ]; then
+    RES="<li>no changes</li>"
+  fi
+  echo $RES
 #+END_SRC
 
 #+RESULTS:
@@ -151,7 +152,7 @@ information, in Java style pseudo-code form.
 
 Example diagram snippet definiting =User= class in above diagram...
 
-#+BEGIN_SRC plantuml :noweb-ref client-user
+#+BEGIN_SRC plantuml :noweb-ref client-user :exports code
 class User {
   String name
   String email
@@ -167,7 +168,7 @@ class User {
 | =USER=      | logged in, registered user with default permissions |
 | =ADMIN=     | logged in, registered user with admin permissions   |
 
-#+BEGIN_SRC plantuml :noweb-ref client-user-role
+#+BEGIN_SRC plantuml :noweb-ref client-user-role :exports code
 enum UserRole {
   ANONYMOUS
   USER
@@ -310,11 +311,12 @@ version of the specification:
 
 2. [@2] In Emacs type =M-x load-file RET /path/to/org-theme/config.el=
 3. Open the =index.org= file in Emacs
-4. Manually evaluate the changelog code block in Section 1
-5. If using PlantUML diagrams, export the diagram files via =C-c C-v t=
-   and then run =plantuml -tpng assets/*.plantuml= from the command line.
-6. Press =C-c C-e h o= to launch the export selection dialog, export
+4. Press =C-c C-e h o= to launch the export selection dialog, export
    as HTML and automatically open the file in your web browser
+
+*Note*: The export process will re-generate the changelog (only in the
+exported HTML), re-create any diagrams and replace any existing
+rendered diagram files.
 
 ** Re-publish PDF
 
@@ -323,7 +325,7 @@ to a PDF file via your browser's print dialog. Print style sheets are
 included in the file =css/styles.css=.
 
 * Diagram definitions                                              :noexport:
-*** Global styles
+*** Global PlantUML styles
 #+BEGIN_SRC plantuml :noweb-ref uml-style :exports none
 skinparam defaultFontName Inconsolata
 skinparam defaultFontSize 11
@@ -345,7 +347,7 @@ skinparam class {
 
 *** Client data model diagram
 
-#+BEGIN_SRC plantuml :noweb yes :tangle ./assets/clientmodel.plantuml :exports none
+#+BEGIN_SRC plantuml :noweb yes :file assets/clientmodel.png :exports results
 @startuml
 
 <<uml-style>>
