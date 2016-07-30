@@ -264,7 +264,7 @@ div.figure {
         font-size: 12px;
     }
 
-    #table-of-contents .todo, .done {
+    #table-of-contents .todo, #table-of-contents .done {
         font-size: 80%;
     }
 
