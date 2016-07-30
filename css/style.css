@@ -275,6 +275,31 @@ div.figure {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    html, body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html, body {
+        font-size: 14px;
+    }
+
+    #table-of-contents {
+        display: none;
+    }
+
+    h1.title {
+        margin-left: 5%;
+    }
+    
+    div.outline-2, #footnotes {
+        margin-left: 5%;
+        max-width: 90%;
+    }
+}
+
 @media print {
 
     body {
