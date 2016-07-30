@@ -61,7 +61,7 @@ for the code block below to the tag of your last published version.
 
 #+HTML: <ul>
 #+BEGIN_SRC shell :exports results :results value html :var TAG="v0.0"
-RES=`git log $TAG...HEAD --pretty="<li>%s</li>" -- *.org`
+RES=`git log $TAG...HEAD --pretty="<li>%s</li>" -- index.org`
 if [ -z $RES ]; then
   RES="<li>no changes</li>"
 fi
@@ -70,7 +70,6 @@ echo $RES
 
 #+RESULTS:
 #+BEGIN_HTML
-<li>add footnote example, use macro for publication date</li>
 #+END_HTML
 
 #+HTML: </ul>
