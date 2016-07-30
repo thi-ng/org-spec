@@ -15,8 +15,9 @@ publishing
   - Footnotes
   - Automatically updating fields (e.g. publication date)
   - Semi-automatic updating of document changelog
-  - Basic syntax highlighting of code blocks
-- Beautiful, minimal CSS with print support (also for PDF generation)
+- Beautiful, minimal, responsive CSS theme with print support (also
+  for PDF generation)
+- Basic syntax highlighting of code blocks
 
 * Example output
 
@@ -30,12 +31,21 @@ The =index.org= source file contains everything (apart from CSS, which
 is located in the =/css= dir), including build instructions and
 further comments, not visible in the exported document.
 
-You can use =s3cmd='s sync option to quickly publish the generated
-HTML version to AWS S3, like so:
+You can use =s3cmd= to quickly publish the generated HTML version to
+AWS S3, like so:
 
 #+BEGIN_SRC shell
-# if you need to install s3cmd first
-brew install s3cmd
+  # if you need to install s3cmd first
+  brew install s3cmd
+  s3cmd --configure
 
-s3cmd sync . s3://bucketname/path/
+  # optionally create a website bucket
+  s3cmd ws-create s3://BUCKETNAME
+
+  # only upload HTML, CSS & PNGs
+  s3cmd -P --recursive --exclude=* \
+        --include=index.html \
+        --include=*.css \
+        --include=assets/*.png \
+        put . s3://BUCKETNAME
 #+END_SRC
