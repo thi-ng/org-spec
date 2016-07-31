@@ -148,9 +148,72 @@ img {
 }
 
 div.notice {
-    background: #efe;
+    position: relative;
     margin: 0 1.2em;
     padding: 0.25em 1em;
+}
+
+div.notice a {
+    background: transparent !important;
+    border-bottom: 1px dotted;
+}
+
+div.notice a[href^="http"]:after {
+    background: transparent !important;
+}
+
+div.notice:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
+    font-size: 80%;
+    border-bottom-left-radius: 0.5em;
+}
+
+.notice-warning {
+    background: #fcc;
+    color: #600;
+}
+
+.notice-example {
+    background: #def;
+    color: #069;
+}
+
+.notice-info {
+    background: #efe;
+    color: #060;
+}
+
+.notice-warning a {
+    color: #600;
+}
+
+.notice-example a {
+    color: #069;
+}
+
+.notice-info a {
+    color: #060;
+}
+
+div.notice-warning:before {
+    content: "WARNING";
+    background: #c99;
+    color: #fcc;
+}
+
+div.notice-example:before {
+    content: "EXAMPLE";
+    background: #abc;
+    color: #def;
+}
+
+div.notice-info:before {
+    content: "INFO";
+    background: #9c9;
+    color: #efe;
 }
 
 pre {
