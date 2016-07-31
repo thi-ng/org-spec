@@ -26,7 +26,7 @@ h2 {
 }
 
 h3 {
-    margin-top: 3em;
+    margin-top: 2em;
     font-size: 1.5em;
 }
 
@@ -147,10 +147,29 @@ img {
     max-width: 90%;
 }
 
+div.notice {
+    background: #efe;
+    margin: 0 1.2em;
+    padding: 0.25em 1em;
+}
+
 pre {
     font-family: Inconsolata;
     border: 0;
     box-shadow: none;
+}
+
+pre.example:before {
+    content: "Properties";
+    display: block;
+    border-bottom: 1px dotted;
+    margin-bottom: 1em;
+}
+
+pre.example {
+    background: #fec;
+    color: #666;
+    font-size: 0.85em;
 }
 
 pre {
@@ -161,6 +180,35 @@ pre {
 
 pre.src {
     padding: 0.5em;
+}
+
+pre.src:before {
+    display: block;
+    position: absolute;
+    background-color: #ccccd0;
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
+    border-bottom-left-radius: 8px;
+    border: 0;
+    color: white;
+    font-size: 80%;
+}
+
+pre.src-plantuml:before {
+    content: "UML";
+}
+
+pre.src-javascript:before {
+    content: "JS";
+}
+
+pre.src-clojure:before {
+    content: "CLJ";
+}
+
+pre.src-c:before {
+    content: "C";
 }
 
 span.org-string {
@@ -214,7 +262,7 @@ div.figure {
 
 .tag span {
     background: #ccc;
-    padding: 0 0.25em;
+    padding: 0 0.5em;
     border-radius: 0.2em;
     color: white;
 }
@@ -287,7 +335,7 @@ div.figure {
     h1.title {
         margin-left: 5%;
     }
-    
+
     div.outline-2, #footnotes {
         margin-left: 5%;
         max-width: 90%;
@@ -316,5 +364,9 @@ div.figure {
     a:visited {
         color: black;
         background: #ff8;
+    }
+
+    a[href^="http"]:visited {
+        background: #bff;
     }
 }
