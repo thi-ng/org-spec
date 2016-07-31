@@ -58,9 +58,6 @@ publication. Other documents may supersede this document.
 *Changes since the last version*
 
 #+BEGIN_COMMENT
-The code block below MUST be manually evaluated by placing the cursor
-into the codeblock and typing =C-c C-c=.
-
 In order for the changelog to work, please change the =tag= variable
 for the code block below to the tag of your last published version.
 #+END_COMMENT
