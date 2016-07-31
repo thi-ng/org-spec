@@ -14,7 +14,7 @@ publishing
   - Named section IDs for internal x-refs
   - Footnotes
   - Automatically updating fields (e.g. publication date)
-  - Semi-automatic updating of document changelog
+  - Automatic updating of document changelog (using git commits)
 - Beautiful, minimal, responsive CSS theme with print support (also
   for PDF generation)
 - Basic syntax highlighting of code blocks
@@ -24,6 +24,9 @@ publishing
 Take a look at the published version of the included demo document:
 
 http://demo.thi.ng/org-spec/
+
+The corrensponding =.org= source file:
+https://raw.githubusercontent.com/thi-ng/org-spec/master/index.org
 
 * Getting started
 
@@ -49,3 +52,53 @@ AWS S3, like so:
         --include=assets/*.png \
         put . s3://BUCKETNAME
 #+END_SRC
+
+* Diagramming & exporting
+
+The template heavily utilizes Org-mode's =noweb= references to
+assemble diagrams from individual snippets, as well as to provide
+CSS-like functionality for diagrams by defining a single snippet (per
+diagram tool) containing global styles.
+
+- http://orgmode.org/manual/Noweb-reference-syntax.html#Noweb-reference-syntax
+- http://orgmode.org/manual/noweb_002dref.html#noweb_002dref
+- http://orgmode.org/manual/noweb.html#noweb
+
+The code blocks actually defining the full diagrams are all located in
+the last section of the document (titled "Diagram definitions"). This
+section is only present in the source code and will NOT be exported to
+HTML (however the code blocks are still evaluated during export and
+hence produce the diagrams each time).
+
+If your doc contains a lot of such diagrams (especially PlantUML),
+then exporting can take quite a long while. To save time (and if
+you're not currently working on diagram parts), you can temporarily
+disable the evaluation of ALL code blocks by setting the
+=org-export-babel-evaluate= to =nil=:
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-export-babel-evaluate nil)
+
+  ;; to re-enable...
+  (setq org-export-babel-evaluate t)
+#+END_SRC
+
+* Custom property export
+
+By default the template is configured to export only a specific set of
+properties stored in drawers attached to a section/sub-tree. The list
+of exported property names can be edited in line 4 of the template:
+
+#+BEGIN_SRC org
+#+OPTIONS: prop:("VERSION")
+#+END_SRC
+
+To enable all properties:
+
+#+BEGIN_SRC org
+#+OPTIONS: prop:t
+#+END_SRC
+
+* License
+
+MIT License, (c) 2016 Karsten Schmidt
