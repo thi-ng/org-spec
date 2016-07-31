@@ -54,7 +54,7 @@ Topics covered by this specification:
 This section describes the status of this document at the time of its
 publication. Other documents may supersede this document.
 
-#+HTML: <div class="notice">
+#+HTML: <div class="notice notice-info">
 *Changes since the last version*
 
 #+BEGIN_COMMENT
