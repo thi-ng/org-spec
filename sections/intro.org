@@ -44,7 +44,7 @@ for the code block below to the tag of your last published version.
 #+HTML: <ul>
 
 #+BEGIN_SRC sh :exports results :results value html :var TAG="v0.0"
-  RES=`git log $TAG...HEAD --pretty="<li>%s</li>" -- index.org`
+  RES=`git log $TAG...HEAD --pretty="<li>%s</li>" -- index.org sections/*.org`
   if [ -z $RES ]; then
     RES="<li>no changes</li>"
   fi
