@@ -151,6 +151,7 @@ div.notice {
     position: relative;
     margin: 0 1.2em;
     padding: 0.25em 1em;
+    border-left: 4px solid;
 }
 
 div.notice a {
@@ -431,5 +432,9 @@ div.figure {
 
     a[href^="http"]:visited {
         background: #bff;
+    }
+
+    div.notice:before {
+        display: none;
     }
 }
