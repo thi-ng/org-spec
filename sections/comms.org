@@ -39,7 +39,7 @@ Attempts to authenticate user based on given credentials.
 #+END_SRC
 #+HTML: </td><td>
 #+BEGIN_SRC javascript
-  {"status": "ok"}
+  {"status": "error"}
 #+END_SRC
 #+HTML: </td></tr></table>
 
