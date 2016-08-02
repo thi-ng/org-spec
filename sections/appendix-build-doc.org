@@ -1,0 +1,41 @@
+* Appendix B - Building this document                           :informative:
+  :PROPERTIES:
+  :CUSTOM_ID: section-build-doc
+  :END:
+
+This document (including all diagrams) has been generated using the
+following tools:
+
+- [[https://emacsformacosx.com/][Emacs]]
+- [[http://orgmode.org][Org-mode]]
+- [[http://ditaa.sourceforge.net][Ditaa]]
+- [[http://graphviz.org][Graphviz]]
+- [[http://plantuml.com/][PlantUML]]
+
+** Re-publish an HTML version
+
+The entire source code for this document is stored in the file
+=index.org=. Please follow these steps to publish an updated HTML
+version of the specification:
+
+1. Install the above listed tools. On OSX *Ditaa*, *GraphViz* and
+   *PlantUML* can be installed via Homebrew:
+
+#+BEGIN_SRC sh
+  brew update && brew install ditaa graphviz plantuml
+#+END_SRC
+
+2. [@2] In Emacs type =M-x load-file RET /path/to/org-theme/config.el=
+3. Open the =index.org= file in Emacs
+4. Press =C-c C-e h o= to launch the export selection dialog, export
+   as HTML and automatically open the file in your web browser
+
+*Note*: The export process will re-generate the changelog (only in the
+exported HTML), re-create any diagrams and replace any existing
+rendered diagram files.
+
+** Re-publish PDF
+
+Follow the same instructions as for HTML and then print the document
+to a PDF file via your browser's print dialog. Print style sheets are
+included in the file =css/styles.css=.

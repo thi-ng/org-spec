@@ -1,0 +1,42 @@
+* Diagram definitions                                              :noexport:
+*** Global GraphViz styles
+#+BEGIN_SRC dot :noweb-ref dot-style :exports none
+  node[color="black",style="filled",fontname="Inconsolata",fontcolor="white",fontsize=11];
+  edge[fontname="Inconsolata",fontsize=9];
+#+END_SRC
+
+*** Global PlantUML styles
+#+BEGIN_SRC plantuml :noweb-ref uml-style :exports none
+skinparam defaultFontName Inconsolata
+skinparam defaultFontSize 11
+
+skinparam object {
+	BackgroundColor white-#eee
+	ArrowColor Black
+	BorderColor Black
+  FontSize 14
+}
+
+skinparam class {
+	BackgroundColor white-#eee
+	ArrowColor Black
+	BorderColor Black
+  FontSize 14
+}
+#+END_SRC
+
+*** Client data model diagram
+
+#+BEGIN_SRC plantuml :noweb yes :file assets/clientmodel.png :exports results
+@startuml
+
+<<uml-style>>
+
+<<client-user>>
+
+<<client-user-role>>
+
+User -right-> "1" UserRole : > has
+
+@enduml
+#+END_SRC

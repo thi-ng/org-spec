@@ -1,0 +1,60 @@
+* Client / server communication
+  :PROPERTIES:
+  :CUSTOM_ID: section-client-server
+  :END:
+
+** Server API requirements
+*** Security considerations
+*** HTTP requests
+
+The following table summarizes standard HTTP REST requests (as
+per [[rfc:7231][RFC7231]]):
+
+| *HTTP Verb* | *Client intention*          | *HTTP Status*  | *HTTP Status*         |
+|             |                             | (successful)   | (error)               |
+|-------------+-----------------------------+----------------+-----------------------|
+| *POST*      | create a new resource       | 201 & redirect | 400 / 403 / 404       |
+| *PUT*       | update an existing resource | 200 / 204      | 400 / 403 / 404 / 409 |
+| *GET*       | read an existing resource   | 200            | 400 / 403 / 404       |
+| *DELETE*    | delete an existing resource | 200 / 204      | 400 / 403 / 404 / 409 |
+
+** Server routes
+*** POST =/users/login=
+
+| *Param* | *Required* | *Description*                   |
+|---------+------------+---------------------------------|
+| =email= | Y          | User's registered email address |
+| =pass=  | Y          | User password                   |
+
+*Requires authentication:* NO
+
+*Description:*
+Attempts to authenticate user based on given credentials.
+
+*Returns:*
+#+HTML: <table><tr><th>Success</th><th>Error</th></tr>
+#+HTML: <tr><td>
+#+BEGIN_SRC javascript
+  {"status": "ok"}
+#+END_SRC
+#+HTML: </td><td>
+#+BEGIN_SRC javascript
+  {"status": "ok"}
+#+END_SRC
+#+HTML: </td></tr></table>
+
+** Clientside SPA routes
+*** Route: =/login=
+
+- Displays login dialog
+- HTTP POST credentials to server =/login= route
+- Redirects to SPA main page
+
+*** Route: =/media/:media_id=
+
+| *Param*    | *Type* | *Description*  |
+|------------+--------+----------------|
+| =media_id= | UUID   | Media asset ID |
+
+- Retrieves media asset from server
+- Displays media asset

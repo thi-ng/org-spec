@@ -1,0 +1,112 @@
+* System architecture
+  :PROPERTIES:
+  :CUSTOM_ID: section-sys-arch
+  :VERSION:  1.0
+  :END:
+
+Example of generating a GraphViz visualization:
+
+#+BEGIN_SRC dot :noweb yes :file assets/graph.png :exports results
+digraph g {
+  <<dot-style>>
+  rankdir=LR;
+
+  AnonymousUser -> User[label="is a"];
+  RegisteredUser -> User[label="is a"];
+  AdminUser -> User[label="is a"];
+
+  User -> Client -> Server -> Client;
+
+  Server -> Database -> Server;
+  Server -> "AWS S3" -> Server;
+}
+#+END_SRC
+
+** System actors, roles & responsibilities
+*** Users
+*** Client
+*** Server
+** General system design guidelines
+*** User experience
+*** Accessibility
+*** Data formats
+*** Performance
+*** Security
+*** Layered architecture
+
+Example of generating block diagrams from ASCII art using =ditaa=:
+
+#+BEGIN_SRC ditaa :file assets/arch.png :cmdline -r :exports results
+  +-------------------+ +-------------------+ +-------------------+
+  |                   | |                   | |                   |
+  |     Module #1     | |     Module #2     | |     Module #3     |
+  |                   | |                   | |                   |
+  +---------+---------+ +---------+---------+ +---------+---------+
+            |                     |                     |
+            v                     v                     v
+  +---------+---------------------+---------------------+---------+
+  |cBLK                                                           |
+  |                    Core platform services                     |
+  |                                                               |
+  +---------------------------------------------------------------+
+#+END_SRC
+
+#+CAPTION: Top-level, schematic overview of layered client architecture
+#+RESULTS:
+[[file:assets/arch.png]]
+
+** Client data model
+*** Overview
+
+Example of generating UML diagrams from textual descriptions using =plantuml=:
+
+#+CAPTION: Schematic overview of client side data entities
+[[./assets/clientmodel.png]]
+
+In the following sections each data field is expressed with type
+information, in Java style pseudo-code form.
+
+*** User
+
+| *Field* | *Required* | *Description*                                |
+|---------+------------+----------------------------------------------|
+| =name=  | N          | User name                                    |
+| =email= | N          | User email                                   |
+| =role=  | Y          | One of possible values defined by =UserRole= |
+
+Example PlantUML diagram snippet defining the =User= class in above
+diagram. The full diagram itself is defined in the file
+[[https://raw.githubusercontent.com/thi-ng/org-spec/master/sections/diagrams.org][/sections/diagrams.org]], which is not exported to HTML.
+
+#+BEGIN_SRC plantuml :noweb-ref client-user :exports code
+class User {
+  String name
+  String email
+  UserRole role
+}
+#+END_SRC
+
+**** User roles
+
+| *Value*     | *Description*                                       |
+|-------------+-----------------------------------------------------|
+| =ANONYMOUS= | any non-logged in user                              |
+| =USER=      | logged in, registered user with default permissions |
+| =ADMIN=     | logged in, registered user with admin permissions   |
+
+#+BEGIN_SRC plantuml :noweb-ref client-user-role :exports code
+enum UserRole {
+  ANONYMOUS
+  USER
+  ADMIN
+}
+#+END_SRC
+
+** Technologies used
+
+This section lists the currently envisaged set of technologies used to
+implement the system. Links & further explanations of the various
+projects are provided in [[#section-glossary][Appendix A]].
+
+- [[gh:clojure/clojurescript][ClojureScript]] :: Modern dialect of Lisp, compiled to
+     optimized JavaScript

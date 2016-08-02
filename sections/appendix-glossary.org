@@ -1,0 +1,35 @@
+* Appendix A - Glossary                                         :informative:
+  :PROPERTIES:
+  :CUSTOM_ID: section-glossary
+  :END:
+
+- AWS :: Amazon Web Services, cloud service provider.
+     http://aws.amazon.com/
+- ClojureScript :: A modern dialect of Lisp compiling to optimized
+     JavaScript using Google Closure compiler. [[gh:clojure/clojurescript]]
+- CRUD :: Create, Read, Update, Delete - usually refers to
+     adminstration tasks in CMS / database applications
+- EDN :: Extensible Data Notation, lightweight, data exchange format
+     similar to JSON, but with extensible type support. Native
+     serialization format for Clojure / ClojureScript.
+     [[gh:edn-format/edn]]
+- Google Closure compiler :: Currently best optimizing JavaScript to
+     JavaScript compiler. Performs static analysis and whole program
+     optimizations to allow efficient deployment of large-scale
+     applications. Supports dynamic module loading.
+     [[gh:google/closure-compiler]]
+- Google Closure library :: Google's standard library for
+     cross-browser JavaScript application development. All
+     encompassing & optimized for Closure compiler.
+     [[gh:google/closure-library]]
+- JSON :: JavaScript Object Notation, lightweight defacto industry
+     standard data exchange format, especially if parts of a system
+     involve JavaScript. http://json.org/
+- SPA :: Single-page Application. Refers to a client-side JavaScript
+     web application model, usually with different UI modules. All
+     essential assets (HTML, JS, CSS) are loaded only once and lead to
+     more fluid user experience. Examples: GMail, Google Docs etc.
+- Swagger :: Industry defacto standard documentation system for REST
+     API endpoints. http://swagger.io/
+- UUID :: Universally unique identifier, standardized a 128bit value,
+     usually expressed as 32 hex characters. [[wiki:UUID]]
