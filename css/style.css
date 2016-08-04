@@ -47,10 +47,6 @@ td code {
     font-weight: bold;
 }
 
-ol>li {
-    margin-top: 1em;
-}
-
 a:link, a:hover, a:visited {
                      text-decoration: none;
                      color: black;
@@ -126,6 +122,10 @@ a[href^="http"]:after {
     font-size: 80%;
 }
 
+#table-of-contents ol>li {
+    margin-top: 1em;
+}
+
 table {
     width: 100%;
 }
@@ -154,6 +154,10 @@ div.notice {
     border-left: 4px solid;
 }
 
+table + div.notice {
+    margin-top: 2em;
+}
+
 div.notice a {
     background: transparent !important;
     border-bottom: 1px dotted;
@@ -167,8 +171,8 @@ div.notice:before {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0.25em 0.5em;
-    font-size: 80%;
+    padding: 0.25em 0.5em 0;
+    font-size: 60%;
     border-bottom-left-radius: 0.5em;
 }
 
@@ -362,11 +366,12 @@ div.figure {
         position: fixed;
         top: 0;
         left: 0;
-        padding: 2em 0 0 2em;
+        padding: 2em 0 2em 2em;
         width: 240px;
         height: 100vh;
         font-size: 11px;
         background: #eee;
+        overflow: auto;
     }
 
     #table-of-contents ul>li>ul>li>ul>li {
