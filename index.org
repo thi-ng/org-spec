@@ -6,7 +6,7 @@
 #+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
 #+AUTHOR: Karsten Schmidt
-#+EMAIL: a@.b.com
+#+EMAIL: mailto:a@.b.com
 
 #+LINK: gh    https://github.com/
 #+LINK: rfc   https://tools.ietf.org/html/
@@ -15,7 +15,7 @@
 #+LINK: wiki  https://en.wikipedia.org/wiki/
 
 #+HTML: <div class="outline-2" id="meta">
-| *Author* | {{{author}}} ([[mailto:{{{email}}}][{{{email}}}]])    |
+| *Author* | {{{author}}} ({{{email}}})    |
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
 #+HTML: </div>
 
